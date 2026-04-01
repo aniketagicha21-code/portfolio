@@ -15,58 +15,41 @@ const Career = () => {
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Co-Founder</h4>
-                <h5>CallHQ.ai</h5>
+                <h4>AI/ML Intern</h4>
+                <h5>Praedico Global Research AI Solutions</h5>
+              </div>
+              <h3>2025</h3>
+            </div>
+            <p>
+              Built ML classification and regression models using Python, Pandas,
+              NumPy, and scikit-learn. Performed EDA on 10,000+ record datasets
+              with hyperparameter tuning, improving model accuracy by 7%. Remote, USA.
+            </p>
+          </div>
+          <div className="career-info-box">
+            <div className="career-info-in">
+              <div className="career-role">
+                <h4>Project Lead</h4>
+                <h5>ACM SFSU — AI/ML Special Interest Group</h5>
               </div>
               <h3>NOW</h3>
             </div>
             <p>
-              Building CallHQ.ai, a voice AI platform for
-              automating customer calls, support, and conversions.
+              Leading AI/ML projects and workshops for the SFSU ACM chapter,
+              bridging coursework with real-world applied machine learning.
             </p>
           </div>
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Adobe</h4>
-                <h5>6+ years · Noida</h5>
+                <h4>Team Lead</h4>
+                <h5>Spark SF — Hackathon Division</h5>
               </div>
-              <h3>2017–24</h3>
+              <h3>2025</h3>
             </div>
             <p>
-              Senior Lead Software Engineer (Feb 2024 – May 2024). Lead Software
-              Engineer (Feb 2021 – Feb 2024). Software Engineer II (Dec 2017 –
-              Feb 2021): internationalization, globalization, and localization for
-              Adobe Technical Communication Suite; functional and linguistic testing
-              strategy; in-house tooling; collaboration with product and engineering
-              for high-quality localized releases.
-            </p>
-          </div>
-          <div className="career-info-box">
-            <div className="career-info-in">
-              <div className="career-role">
-                <h4>Consultant</h4>
-                <h5>Genpact Headstrong </h5>
-              </div>
-              <h3>2016–17</h3>
-            </div>
-            <p>
-              Sep 2016 – Nov 2017. Developed and maintained WCF services consumed
-              by the UI; deployment support across environments; NUnit tests and
-              coverage; bug fixes from QA and users; database work.
-            </p>
-          </div>
-          <div className="career-info-box">
-            <div className="career-info-in">
-              <div className="career-role">
-                <h4>Sf Engineer</h4>
-                <h5>Infogain</h5>
-              </div>
-              <h3>2013-16</h3>
-            </div>
-            <p>
-              Software engineering across enterprise projects, contributing to
-              design, development, and delivery of business applications.
+              Led team to Top 10 finish at SF Hacks 2025. Coordinated full-stack
+              development under 24-hour sprint conditions.
             </p>
           </div>
         </div>
