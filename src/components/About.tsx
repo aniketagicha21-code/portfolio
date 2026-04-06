@@ -9,7 +9,7 @@ const About = () => {
           I'm a Computer Science junior at San Francisco State University,
           graduating May 2027. I build AI-powered full-stack applications and
           real-world simulations — from crowd evacuation engines to AI interview
-          coaches. Targeting SWE and ML/AI Engineer roles. Based in San
+          coaches and pathology lab-report analysis. Targeting SWE and ML/AI Engineer roles. Based in San
           Francisco, CA.
         </p>
       </div>

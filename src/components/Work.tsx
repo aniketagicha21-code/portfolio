@@ -27,7 +27,7 @@ const projects: Project[] = [
     category: "Real-Time Crowd Evacuation Simulator",
     tools: "JavaScript, HTML5 Canvas, Node.js, Express, BFS Pathfinding",
     image: "/images/crowdsim.png",
-    link: "https://github.com/CSC317-S26/assignment-3-aniketagicha21-code",
+    link: "https://crowdsim.vercel.app",
   },
   {
     title: "HealthSync — AI Lab Report Analyzer",

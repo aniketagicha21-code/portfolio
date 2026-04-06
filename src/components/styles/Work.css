@@ -88,6 +88,30 @@
   font-size: 16px;
 }
 
+.carousel-description {
+  font-weight: 200;
+  color: #adacac;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.55;
+  max-width: 520px;
+}
+
+.carousel-repo {
+  margin: 0;
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+.carousel-repo a {
+  color: var(--accentColor);
+  text-decoration: none;
+}
+
+.carousel-repo a:hover {
+  text-decoration: underline;
+}
+
 .carousel-tools {
   margin-top: 16px;
 }

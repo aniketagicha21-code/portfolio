@@ -49,7 +49,7 @@ const SocialIcons = () => {
       <div className="social-icons" data-cursor="icons" id="social">
         <span>
   <a         
-            href="https://github.com/aniketagicha21-codex"
+            href="https://github.com/aniketagicha21-code"
             target="_blank"
             rel="noreferrer"
           >
@@ -68,7 +68,7 @@ const SocialIcons = () => {
       </div>
   <a     
         className="resume-button"
-        href="/Aniket_Agicha.pdf"
+        href="/Aniket_Agicha_Resume.pdf"
         target="_blank"
         rel="noreferrer"
       >

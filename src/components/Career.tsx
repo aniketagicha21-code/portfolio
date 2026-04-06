@@ -16,14 +16,15 @@ const Career = () => {
             <div className="career-info-in">
               <div className="career-role">
                 <h4>AI/ML Intern</h4>
-                <h5>Praedico Global Research AI Solutions</h5>
+                <h5>techmedy.ai</h5>
               </div>
-              <h3>2025</h3>
+              <h3>Jun 2025 – Aug 2025</h3>
             </div>
             <p>
               Built ML classification and regression models using Python, Pandas,
               NumPy, and scikit-learn. Performed EDA on 10,000+ record datasets
-              with hyperparameter tuning, improving model accuracy by 7%. Remote, USA.
+              with hyperparameter tuning, improving model accuracy by 7%. Delhi,
+              India.
             </p>
           </div>
           <div className="career-info-box">
