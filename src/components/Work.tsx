@@ -1,4 +1,9 @@
-import { useState, useCallback } from "react";
+import {
+  useState,
+  useCallback,
+  useRef,
+  useLayoutEffect,
+} from "react";
 import "./styles/Work.css";
 import WorkImage from "./WorkImage";
 import { MdArrowBack, MdArrowForward } from "react-icons/md";
@@ -28,6 +33,7 @@ const projects: Project[] = [
     tools: "JavaScript, HTML5 Canvas, Node.js, Express, BFS Pathfinding",
     image: "/images/crowdsim.png",
     link: "https://crowdsim.vercel.app",
+    github: "https://github.com/aniketagicha21-code/crowdsim",
   },
   {
     title: "HealthSync — AI Lab Report Analyzer",
@@ -41,30 +47,46 @@ const projects: Project[] = [
 ];
 
 const Work = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [viewportWidth, setViewportWidth] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
 
-  const goToSlide = useCallback(
-    (index: number) => {
-      if (isAnimating) return;
-      setIsAnimating(true);
-      setCurrentIndex(index);
-      setTimeout(() => setIsAnimating(false), 500);
-    },
-    [isAnimating]
-  );
+  const measure = useCallback(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    setViewportWidth(el.offsetWidth);
+  }, []);
+
+  useLayoutEffect(() => {
+    measure();
+    const el = containerRef.current;
+    if (!el) return;
+    const ro = new ResizeObserver(() => measure());
+    ro.observe(el);
+    window.addEventListener("resize", measure);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", measure);
+    };
+  }, [measure]);
+
+  const goToSlide = useCallback((index: number) => {
+    const i = Math.max(0, Math.min(index, projects.length - 1));
+    setCurrentIndex(i);
+  }, []);
 
   const goToPrev = useCallback(() => {
-    const newIndex =
-      currentIndex === 0 ? projects.length - 1 : currentIndex - 1;
-    goToSlide(newIndex);
-  }, [currentIndex, goToSlide]);
+    setCurrentIndex((i) => (i === 0 ? projects.length - 1 : i - 1));
+  }, []);
 
   const goToNext = useCallback(() => {
-    const newIndex =
-      currentIndex === projects.length - 1 ? 0 : currentIndex + 1;
-    goToSlide(newIndex);
-  }, [currentIndex, goToSlide]);
+    setCurrentIndex((i) => (i === projects.length - 1 ? 0 : i + 1));
+  }, []);
+
+  const trackWidth =
+    viewportWidth > 0 ? viewportWidth * projects.length : undefined;
+  const translateX =
+    viewportWidth > 0 ? -(currentIndex * viewportWidth) : undefined;
 
   return (
     <div className="work-section" id="work">
@@ -75,6 +97,7 @@ const Work = () => {
 
         <div className="carousel-wrapper">
           <button
+            type="button"
             className="carousel-arrow carousel-arrow-left"
             onClick={goToPrev}
             aria-label="Previous project"
@@ -83,6 +106,7 @@ const Work = () => {
             <MdArrowBack />
           </button>
           <button
+            type="button"
             className="carousel-arrow carousel-arrow-right"
             onClick={goToNext}
             aria-label="Next project"
@@ -91,15 +115,31 @@ const Work = () => {
             <MdArrowForward />
           </button>
 
-          <div className="carousel-track-container">
+          <div ref={containerRef} className="carousel-track-container">
             <div
               className="carousel-track"
               style={{
-                transform: `translateX(-${currentIndex * 100}%)`,
+                width: trackWidth,
+                transform:
+                  translateX !== undefined
+                    ? `translate3d(${translateX}px, 0, 0)`
+                    : undefined,
               }}
             >
               {projects.map((project, index) => (
-                <div className="carousel-slide" key={index}>
+                <div
+                  className="carousel-slide"
+                  key={project.title}
+                  style={
+                    viewportWidth > 0
+                      ? {
+                          flex: `0 0 ${viewportWidth}px`,
+                          width: viewportWidth,
+                          maxWidth: viewportWidth,
+                        }
+                      : undefined
+                  }
+                >
                   <div className="carousel-content">
                     <div className="carousel-info">
                       <div className="carousel-number">
@@ -124,7 +164,7 @@ const Work = () => {
                             <a
                               href={project.github}
                               target="_blank"
-                              rel="noreferrer"
+                              rel="noopener noreferrer"
                               data-cursor="disable"
                             >
                               GitHub repository
@@ -135,6 +175,7 @@ const Work = () => {
                     </div>
                     <div className="carousel-image-wrapper">
                       <WorkImage
+                        key={project.image}
                         image={project.image}
                         alt={project.title}
                         link={project.link}
@@ -146,15 +187,18 @@ const Work = () => {
             </div>
           </div>
 
-          <div className="carousel-dots">
-            {projects.map((_, index) => (
+          <div className="carousel-dots" role="tablist" aria-label="Projects">
+            {projects.map((project, index) => (
               <button
-                key={index}
+                key={project.title}
+                type="button"
+                role="tab"
+                aria-selected={index === currentIndex}
+                aria-label={`${project.title}, project ${index + 1} of ${projects.length}`}
                 className={`carousel-dot ${
                   index === currentIndex ? "carousel-dot-active" : ""
                 }`}
                 onClick={() => goToSlide(index)}
-                aria-label={`Go to project ${index + 1}`}
                 data-cursor="disable"
               />
             ))}

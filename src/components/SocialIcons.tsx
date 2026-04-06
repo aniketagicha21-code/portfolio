@@ -60,7 +60,7 @@ const SocialIcons = () => {
   <a          
             href="https://www.linkedin.com/in/aniketagicha"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             <FaLinkedinIn />
           </a>

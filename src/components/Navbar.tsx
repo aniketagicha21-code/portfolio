@@ -10,12 +10,17 @@ export let smoother: ScrollSmoother;
 
 const Navbar = () => {
   useEffect(() => {
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
     smoother = ScrollSmoother.create({
       wrapper: "#smooth-wrapper",
       content: "#smooth-content",
-      smooth: 1.7,
-      speed: 1.7,
-      effects: true,
+      // Lower values = less scroll lag vs pointer/wheel (was 1.7 — felt heavy).
+      smooth: reduceMotion ? 0.1 : 1.05,
+      speed: reduceMotion ? 1 : 1.05,
+      effects: false,
       autoResize: true,
       ignoreMobileResize: true,
     });
@@ -46,11 +51,11 @@ const Navbar = () => {
           AA
         </a>
         <a
-          href="https://www.linkedin.com/in/aniketagicha/"
+          href="https://www.linkedin.com/in/aniketagicha"
           className="navbar-connect"
           data-cursor="disable"
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
         >
           linkedin.com/in/aniketagicha
         </a>

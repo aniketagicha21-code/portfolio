@@ -15,6 +15,7 @@ export function setCharTimeline(
       start: "top top",
       end: "bottom top",
       scrub: true,
+      fastScrollEnd: true,
       invalidateOnRefresh: true,
     },
   });
@@ -24,6 +25,7 @@ export function setCharTimeline(
       start: "center 55%",
       end: "bottom top",
       scrub: true,
+      fastScrollEnd: true,
       invalidateOnRefresh: true,
     },
   });
@@ -33,6 +35,7 @@ export function setCharTimeline(
       start: "top top",
       end: "bottom top",
       scrub: true,
+      fastScrollEnd: true,
       invalidateOnRefresh: true,
     },
   });
@@ -139,6 +142,7 @@ export function setAllTimeline() {
       start: "top 30%",
       end: "100% center",
       scrub: true,
+      fastScrollEnd: true,
       invalidateOnRefresh: true,
     },
   });

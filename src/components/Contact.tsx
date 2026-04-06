@@ -11,9 +11,9 @@ const Contact = () => {
             <h4>Connect</h4>
             <p>
     <a                 
-                href="https://linkedin.com/in/aniketagicha"
+                href="https://www.linkedin.com/in/aniketagicha"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 data-cursor="disable"
               >
                 LinkedIn - aniketagicha
@@ -35,9 +35,9 @@ const Contact = () => {
               GitHub <MdArrowOutward />
             </a>
     <a           
-              href="https://linkedin.com/in/aniketagicha"
+              href="https://www.linkedin.com/in/aniketagicha"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               data-cursor="disable"
               className="contact-social"
             >
