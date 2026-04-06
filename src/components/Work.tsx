@@ -3,27 +3,40 @@ import "./styles/Work.css";
 import WorkImage from "./WorkImage";
 import { MdArrowBack, MdArrowForward } from "react-icons/md";
 
-const projects = [
+type Project = {
+  title: string;
+  category?: string;
+  tools: string;
+  image: string;
+  link: string;
+  github?: string;
+  description?: string;
+};
+
+const projects: Project[] = [
   {
     title: "PrepAI",
     category: "AI Mock Interview Coach",
     tools: "React, FastAPI, OpenAI Whisper, GPT-4, PostgreSQL",
-    image: "/images/callhq.png",
-    link: "https://github.com/aniketagicha21-codex",
+    image: "/images/prepai.png",
+    link: "https://prep-ai-sepia-iota.vercel.app",
+    github: "https://github.com/aniketagicha21-code/PrepAI",
   },
   {
     title: "CrowdSim",
     category: "Real-Time Crowd Evacuation Simulator",
     tools: "JavaScript, HTML5 Canvas, Node.js, Express, BFS Pathfinding",
-    image: "/images/broki.png",
+    image: "/images/crowdsim.png",
     link: "https://github.com/CSC317-S26/assignment-3-aniketagicha21-code",
   },
   {
-    title: "RoleAccel",
-    category: "Career Platform",
-    tools: "Next.js, React, Vercel, CI/CD",
-    image: "/images/orrdr.png",
-    link: "https://role-accel-home.vercel.app",
+    title: "HealthSync — AI Lab Report Analyzer",
+    tools: "React, FastAPI, GPT-4, pdfplumber, PostgreSQL",
+    image: "/images/healthsync.png",
+    link: "https://health-sync-topaz.vercel.app",
+    github: "https://github.com/aniketagicha21-code/HealthSync",
+    description:
+      "AI-powered lab report analyzer that parses PDF pathology reports, extracts 25+ biomarkers, classifies NORMAL/HIGH/LOW/CRITICAL via GPT-4, tested against real pathology reports flagging 13 abnormal values.",
   },
 ];
 
@@ -94,11 +107,30 @@ const Work = () => {
                       </div>
                       <div className="carousel-details">
                         <h4>{project.title}</h4>
-                        <p className="carousel-category">{project.category}</p>
+                        {project.category ? (
+                          <p className="carousel-category">{project.category}</p>
+                        ) : null}
+                        {project.description ? (
+                          <p className="carousel-description">
+                            {project.description}
+                          </p>
+                        ) : null}
                         <div className="carousel-tools">
                           <span className="tools-label">Tools & Stack</span>
                           <p>{project.tools}</p>
                         </div>
+                        {project.github ? (
+                          <p className="carousel-repo">
+                            <a
+                              href={project.github}
+                              target="_blank"
+                              rel="noreferrer"
+                              data-cursor="disable"
+                            >
+                              GitHub repository
+                            </a>
+                          </p>
+                        ) : null}
                       </div>
                     </div>
                     <div className="carousel-image-wrapper">
